@@ -1,0 +1,132 @@
+<body onload={{action "displayRoute"}}>
+<center>
+<h1>Book Tickets</h1>
+
+<button class="btn btn-primary" {{action "displayRoute"}} type="submit">
+  Book Ticket
+</button>
+{{#if displayIt}}
+<br/><br/><br/>
+  <table class="table">
+    <tr class="bg-primary">
+      <td>select here</td>
+      <td>routeId</td>
+      <td>source</td>
+      <td>destination</td>
+      <td>departTime</td>
+      <td>arrivalTime</td>
+    </tr>
+    {{#each routeDetails as |property|}}
+    <tr class="bg-info">
+      <td>
+        <button {{action "displayClassType" property.routeId property.source property.destination property.departTime property.arrivalTime}} type="submit" class="btn" value=selectedRouteId>
+          Book Ticket
+        </button>
+      </td>
+    <td>{{property.routeId}}</td>
+    <td>{{property.source}}</td>
+    <td>{{property.destination}}</td>
+    <td>{{property.departTime}}</td>
+    <td>{{property.arrivalTime}}</td>
+  </tr>
+  {{/each}}
+  </table>
+  {{/if}}
+  {{#if displayClassDetails}}
+    <br/>
+    <button {{action "displayRoute"}} type="submit" class="btn btn-primary">
+      Back
+    </button>
+    <br/>
+<h3>  <label class="label label-primary">Source:    {{selectedSource}} </label><label class="label label-primary">Destination:   {{selectedDestination}}</label><label class="label label-primary">Depart Time:    {{selectedDepartTime}} </label><label class="label label-primary">Arrival Time:    {{selectedArrivalTime}} </label>
+  <br/><label class="label label-success">busId:    {{selectedRouteId}} </label> <label class="label label-success">busName:    {{classDetails.[0].busName}} </label><br/><br/></h3>
+  <label>{{classDetails.[0].busname}}</label>
+    <table class="table">
+      <tr class="bg-primary">
+        <td>select here</td>
+        <td>Class Id</td>
+        <td>Class Type</td>
+        <td>Fare</td>
+      </tr>
+      {{#each classDetails as |property|}}
+      <tr class="bg-info">
+        <td>
+        <button {{action "displaySeats" property.classId}} type="submit" class="btn btn-primary" value=selectedClassId>
+          Select Here
+        </button>
+        </td>
+      <td>{{property.classId}}</td>
+      <td>{{property.classType}}</td>
+      <td>{{property.fare}}</td>
+    </tr>
+    {{/each}}
+    </table>
+
+
+    {{/if}}
+    {{#if displaySeatDetails}}
+        {{#each seatDetails as |property|}}
+        <label>{{property.count}}</label>
+        <input name="selector[]" id="ad_Checkbox1" class="ads_Checkbox" type="checkbox" value={{property.count}}  disabled={{property.status}}/>
+        <!-- {{input type="checkbox" name="seats" disabled=property }} -->
+      {{/each}}
+      <button {{action "confirmSeats"}} type="submit" class="btn btn-primary">
+        Confirm
+      </button>
+      {{/if}}
+      {{#if displayPassengerDetails}}
+        <table class="table">
+          <tr class="bg-primary">
+            <td>Seat No:</td>
+            <td>Class Type</td>
+            <td>Passenger Name</td>
+            <td>Passenger Age</td>
+            <td>Passenger Gender</td>
+          </tr>
+          {{#each passengerDetails as |property|}}
+          <tr class="bg-info">
+            <td><label>{{property.seatNo}}</label></td>
+            <td><label>{{property.seatType}}</label></td>
+            <td><input type="text" class="passengerName" /></td>
+            <td><input type="text" class="passengerAge" /></td>
+            <td><input type="text" class="passengerGender" /></td>
+          </tr>
+          {{/each}}
+        </table>
+        <button {{action "bookSeats"}} type="submit" class="btn btn-primary">
+          Book
+        </button>
+        {{/if}}
+        {{#if displayTicketDetails}}
+        <h3>  <label class="label label-primary">Source:    {{selectedSource}} </label><label class="label label-primary">Destination:   {{selectedDestination}}</label><label class="label label-primary">Depart Time:    {{selectedDepartTime}} </label><label class="label label-primary">Arrival Time:    {{selectedArrivalTime}} </label>
+          <br/><label class="label label-success">busId:    {{selectedRouteId}} </label> <label class="label label-success">busName:    {{classDetails.[0].busName}} </label><br/><br/></h3>
+
+          <table class="table">
+            <tr class="bg-primary">
+              <td>Seat No</td>
+              <td>Class Type</td>
+              <td>Passenger Name</td>
+              <td>Passenger Age</td>
+              <td>Passenger Gender</td>
+            </tr>
+            {{#each ticketDetails as |property|}}
+            <tr class="bg-info">
+              <td><label>{{property.seatNo}}</label></td>
+              <td><label>{{property.classType}}</label></td>
+              <td><label>{{property.passName}}</label></td>
+              <td><label>{{property.age}}</label></td>
+              <td><label>{{property.gender}}</label></td>
+            </tr>
+            {{/each}}
+          </table>
+            <h3><label class="label label-danger">Fare:  {{ticketDetails.[0].fare}}</label></h3>
+
+          <button {{action "displayRoute"}} type="submit" class="btn btn-primary">
+            ReBook
+          </button>
+          {{/if}}
+
+
+</center>
+</body>
+<!-- {{outlet}} -->

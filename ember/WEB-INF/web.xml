@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+id="WebApp_ID" version="3.0">
+  <display-name>Java Servlet JSON</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+ 
+  <servlet>
+    <servlet-name>jsonservlet</servlet-name>            
+    <servlet-class>com.json.JSONServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>jsonservlet</servlet-name>
+    <url-pattern>/jsonservlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Hello</servlet-name>            
+    <servlet-class>com.json.Hello</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Hello</servlet-name>
+    <url-pattern>/Hello</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RouteServlet</servlet-name>            
+    <servlet-class>com.json.RouteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RouteServlet</servlet-name>
+    <url-pattern>/RouteServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ClassServlet</servlet-name>            
+    <servlet-class>com.json.ClassServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClassServlet</servlet-name>
+    <url-pattern>/ClassServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SeatsServlet</servlet-name>            
+    <servlet-class>com.json.SeatsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeatsServlet</servlet-name>
+    <url-pattern>/SeatsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BookServlet</servlet-name>            
+    <servlet-class>com.json.BookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookServlet</servlet-name>
+    <url-pattern>/BookServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PassengerServlet</servlet-name>            
+    <servlet-class>com.json.PassengerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PassengerServlet</servlet-name>
+    <url-pattern>/PassengerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>PNRDetailsServlet</servlet-name>            
+    <servlet-class>com.json.PNRDetailsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PNRDetailsServlet</servlet-name>
+    <url-pattern>/PNRDetailsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>TicketByPNRServlet</servlet-name>            
+    <servlet-class>com.json.TicketByPNRServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TicketByPNRServlet</servlet-name>
+    <url-pattern>/TicketByPNRServlet</url-pattern>
+  </servlet-mapping>
+<!--  <resource-ref>
+    <description>Connection Pool</description>
+    <res-ref-name>jdbc/confluence</res-ref-name>
+    <res-type>javax.sql.Datasource</res-type>
+    <res-auth>Container</res-auth>
+</resource-ref>-->
+<!--<servlet>
+		<servlet-name>TestServlet</servlet-name>
+		<servlet-class>test.TestServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TestServlet</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+
+-->
+<!--  <security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Wildcard means whole app requires authentication</web-resource-name>
+			<url-pattern>/*</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>dude</role-name>
+		</auth-constraint>
+
+		<user-data-constraint>
+			 transport-guarantee can be CONFIDENTIAL, INTEGRAL, or NONE 
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+        
+
+	<login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>jdbc realm</realm-name>
+        <form-login-config>
+            <form-login-page>/login.html</form-login-page>
+            <form-error-page>/login-failed.html</form-error-page>
+        </form-login-config>
+	</login-config>-->
+<!--<login-config>
+    <auth-method>BASIC</auth-method>
+        <auth-method>FORM</auth-method>
+      <realm-name>jdbc realm</realm-name>
+        <form-login-config>
+                <form-login-page>/index.html</form-login-page>
+                <form-error-page>/login-failed.html</form-error-page>
+        </form-login-config>
+</login-config>-->
+</web-app>

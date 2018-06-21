@@ -1,0 +1,58 @@
+<center>
+<h1>View Details</h1>
+<button {{action "displayPNRDetails"}} type="submit" class="btn btn-primary">
+  view details
+</button>
+          {{#if displayPNRDetails}}
+            <table class="table">
+              <tr class="bg-primary">
+                <td>select here</td>
+                <td>PNR Id</td>
+                <td>Source</td>
+                <td>Destination</td>
+                <td>Fare</td>
+              </tr>
+              {{#each PNRDetails as |property|}}
+              <tr class="bg-info">
+                <td>
+                <button {{action "displayTicketByPNR" property.pnrId property.source property.destination}} type="submit" class="btn btn-primary" value=selectedClassId>
+                  Select Here
+                </button>
+                </td>
+              <td>{{property.pnrId}}</td>
+              <td>{{property.source}}</td>
+              <td>{{property.destination}}</td>
+              <td>{{property.fare}}</td>
+            </tr>
+            {{/each}}
+            </table>
+            {{/if}}
+            {{#if displayTicketDetailsByPNR}}
+            <h3>  <label class="label label-primary">PNR ID:    {{selectedPnr}} </label><label class="label label-primary">Source:    {{selectedSource}} </label><label class="label label-primary">Destination:   {{selectedDestination}}</label><label class="label label-primary">Depart Time:    {{ticketDetailsByPNR.[0].departTime}} </label><label class="label label-primary">Arrival Time:    {{ticketDetailsByPNR.[0].arrivalTime}} </label>
+              <br/><label class="label label-success">busId:    {{ticketDetailsByPNR.[0].busId}} </label> <label class="label label-success">busName:    {{ticketDetailsByPNR.[0].busName}} </label><br/><br/></h3>
+              <table class="table">
+                <tr class="bg-primary">
+                  <td>Seat No:</td>
+                  <td>Class Type</td>
+                  <td>Passenger Name</td>
+                  <td>Passenger Age</td>
+                  <td>Passenger Gender</td>
+                </tr>
+                {{#each ticketDetailsByPNR as |property|}}
+                <tr class="bg-info">
+                  <td><label>{{property.seatNo}}</label></td>
+                  <td><label>{{property.classType}}</label></td>
+                  <td><label>{{property.passName}}</label></td>
+                  <td><label>{{property.age}}</label></td>
+                  <td><label>{{property.gender}}</label></td>
+                </tr>
+
+                {{/each}}
+
+              </table>
+              <h3><label class="label label-danger">Fare: {{ticketDetailsByPNR.[0].fare}}</label></h3><br/><br/>
+              <button {{action "displayPNRDetails"}} type="submit" class="btn btn-primary">Back</button>
+              {{/if}}
+            </center>
+
+<!-- {{outlet}} -->

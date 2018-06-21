@@ -1,0 +1,53 @@
+<div style="width: 100%;">
+   <div style="float:left; width: 10%">
+     <br/><br/><br/><br/><br/><br/>
+     <button class="btn btn-primary" {{action "bookTicket"}} type="submit" >
+       Book Ticket
+     </button><br/><br/>
+     <button class="btn btn-primary" {{action "viewDetails"}} type="submit">
+       View Details
+     </button><br/><br/>
+     <!-- <button class="btn" {{action "logoutUser"}} type="submit" class="btn">
+       logout
+     </button><br/> -->
+   </div>
+   <div style="float:right; width:90%">
+     {{outlet}}
+   </div>
+</div>
+
+<!-- {{#if isLoginForm}}
+<center>
+<table class="mytable" border="0">
+<tr align="left">
+<td><b><h3>User Log In</h3></b></td>
+</tr>
+<tr align="left">
+<td><b>User Name:</b></td>
+</tr>
+<tr align="left">
+<td>
+{{input type="text" value=username size="40"}}
+<br><br></td>
+</tr>
+
+<tr align="left">
+<td><b>Password:</b></td>
+</tr>
+
+<tr align="left">
+<td>
+{{input type="password" value=password size="40"}}<br><br></td>
+</tr>
+
+<tr><td><center><div class="detail" >{{response1}}</div></center></td>
+</tr>
+
+<tr>
+<td align="center">
+<input class="btn" type="button"  value="    Sign in    "   {{action 'validateUser'}} >
+<br><br></td>
+</tr>
+</table>
+</center>
+{{/if}} -->
